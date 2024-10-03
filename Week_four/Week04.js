@@ -63,3 +63,48 @@ console.log(userName.slice(false, true).toLowerCase()); // e
 console.log(userName.substr(false, true).toLowerCase()); // e
 console.log(userName.charAt(false).toLowerCase()); // e
 console.log(userName.slice(false, true).toLowerCase().repeat(true+true+true)); // eee
+console.log("*".repeat(100));
+
+
+//Task 02
+let word = "Elzero";
+let letterZ = "z";
+let letterE = "e";
+let letterO = "O";
+
+console.log(word.includes(letterZ)); // True
+console.log(word.startsWith(letterE.toUpperCase())); // True
+console.log(word.endsWith(letterO.toLowerCase())); // True
+console.log("*".repeat(100));
+
+
+//challenge>>>>>>>>>>>>>>>>>>
+/*
+  String Challenge
+  All Solutions Must Be In One Chain
+  You Can Use Concatenate
+*/
+
+let a = "Elzero Web School";
+
+// Include This Method In Your Solution [slice, charAt]
+console.log(a.slice(2,6).charAt(0).toUpperCase()+ a.slice(3,6)); // Zero
+
+// 8 H
+console.log(a.substr(-4,1).toUpperCase().repeat(8)); // HHHHHHHH
+
+// Return Array
+console.log(a.slice(0,6).split()); // ["Elzero"]
+
+// Use Only "substr" Method + Template Literals In Your Solution
+console.log(`${a.substr(0,6)}${a.substr(10)}`); // Elzero School
+
+// Solution Must Be Dynamic Because String May Changes
+console.log(
+`${
+   a.substring(0,1).toLowerCase()+
+   a.substring(1,a.length-1).toUpperCase()+
+   a.substring(a.length- 1).toLowerCase()
+}`
+); // eLZERO WEB SCHOOl
+//  Elzero Web School
