@@ -1,110 +1,135 @@
 //Task 01
-console.log(100_000); // 100000
-console.log(100000); // 100000
-console.log(5e4 + 5e4); // 100000
-console.log(100* 100); // 100000
-console.log(1e5); // 100000
-console.log(100000); // 100000
-console.log(1e6 / 1e1); // 100000
-console.log(Math.ceil(100000)); // 100000
-console.log(Math.round(100000)); // 100000
-console.log(Number(100000)); // 100000
-console.log(100000.0); // 100000
-console.log(parseInt(100000)); // 100000
-console.log(10**5); // 100000
-console.log("*".repeat(100));
+function getDetails(zName, zAge, zCountry) {
+    function namePattern(zName) {
+         const name = zName.split(' ');
+         const firstn = name[0];
+         const lastn = name[1][0].toUpperCase();
+        return (`${firstn} ${lastn}.`)
+    }
+    function ageWithMessage(zAge) {
+         const age = zAge.match(/\d+/)[0];
+         return `Your Age IS ${age} `
+
+    }
+    function countryTwoLetters(zCountry) {
+          const country = zCountry.slice(0,2).toUpperCase();
+         return `You Live In ${country}`
+    }
+    function fullDetails() {
+       const username  = namePattern(zName);
+       const userAge = ageWithMessage(zAge);
+       const usercountry = countryTwoLetters(zCountry);
+
+       return `Hello ${username}${userAge}${usercountry}`;
+    }
+    return fullDetails(); // Do Not Edit This
+  }
+  
+  console.log(getDetails("Osama Mohamed", "38 Is My Age", "Egypt"));
+  // Hello Osama M., Your Age Is 38, You Live In EG
+  
+  console.log(getDetails("Ahmed ali", "32 Is The Age", "Syria"));
+  // Hello Ahmed A., Your Age Is 32, You Live In SY
+console.log("*".repeat(80));
 
 
-//Task 02
-console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
-console.log("*".repeat(100));
+
+
+//Task02
+
+// function itsMe() {
+//   return `Iam A Normal Function`;
+// }
+//   console.log(itsMe()); // Iam A Normal Function
+const its = ()=> `Iam A Arrow Function`;
+console.log(its()); // Iam A Arrow Function
+
+// function urlCreate(protocol, web, tld) {
+//   return `${protocol}://www.${web}.${tld}`;
+// }
+
+// console.log(urlCreate("https", "elzero", "org")); // https://www.elzero.org
+
+urlCreate = (protocol, web, tld)=> `${protocol}://www.${web}.${tld}`;
+console.log(urlCreate("https", "elzero", "org")); // https://www.elzero.org
+console.log("*".repeat(80));
+
 
 
 //Task 03
-console.log(Number.MAX_SAFE_INTEGER.toString().length); // 16
-console.log("*".repeat(100));
+
+// function checker(zName) {
+//   return function (status) {
+//     return function (salary) {
+//       return status === "Available" ? `${zName}, My Salary Is ${salary}` : `Iam Not Avaialble`;
+//     };
+//   };
+// }
+
+// console.log(checker("Osama")("Available")(4000)); // Osama, My Salary Is 4000
+// console.log(checker("Ahmed")("Not Available")()); // Iam Not Avaialble
+
+const checker = (zName) => (status) => (salary) => 
+  status === "Available" ? `${zName}, My Salary Is ${salary}` : `Iam Not Avaialble`;
+console.log(checker("Osama")("Available")(4000)); // Osama, My Salary Is 4000
+ console.log(checker("Ahmed")("Not Available")()); // Iam Not Avaialble
+ console.log("*".repeat(80));
 
 
-//Task 04
-let myVar = "100.56789 Views";
-console.log(Number.parseInt(myVar)); // 100
-console.log(+Number.parseFloat(myVar).toFixed(2)); // 100.57
-console.log("*".repeat(100));
 
 
-//Task 05
-let num = 10;
-console.log((Number.isInteger(num))+ (Number.isInteger(num))); // 2
-console.log("*".repeat(100));
+//Task04
+function specialMix(...data) {
+  let result = 0;
+  for (let i = 0; i< data.length;i++){
+    if (Number.isInteger(parseInt(data[i])) === true)
+    {
+      result += parseInt(data[i]);
+    }
+  }
+    if (result === 0) {
+      return `All Is Strings`;
+    }
+    return result;
+  }
+
+console.log(specialMix(10, 20, 30)); // 60
+console.log(specialMix("10Test", "Testing", "20Cool")); // 30
+console.log(specialMix("Testing", "10Testing", "40Cool")); // 50
+console.log(specialMix("Test", "Cool", "Test")); // All Is Strings
+console.log("*".repeat(80));
 
 
-//Task 06
-let flt = 10.4;
-console.log(Math.ceil(flt) - true); // 10
-console.log(Math.floor(flt)); // 10
-console.log(Math.round(flt)); // 10
-console.log(Number.parseInt(flt)); // 10
-console.log(flt.toFixed()); // 10
-console.log("*".repeat(100));
 
 
-//Task 07
-
-console.log((Math.random() * 4).toFixed()); // 0 || 1 || 2 || 3 || 4
-console.log(Math.floor(Math.random() * 5)); // 0 || 1 || 2 || 3 || 4
-console.log("*".repeat(100));
-
-
-//Task 01
-let userName = "Elzero";
-
-
-console.log(userName.slice(false, true).toLowerCase()); // e
-console.log(userName.substr(false, true).toLowerCase()); // e
-console.log(userName.charAt(false).toLowerCase()); // e
-console.log(userName.slice(false, true).toLowerCase().repeat(true+true+true)); // eee
-console.log("*".repeat(100));
-
-
-//Task 02
-let word = "Elzero";
-let letterZ = "z";
-let letterE = "e";
-let letterO = "O";
-
-console.log(word.includes(letterZ)); // True
-console.log(word.startsWith(letterE.toUpperCase())); // True
-console.log(word.endsWith(letterO.toLowerCase())); // True
-console.log("*".repeat(100));
-
-
-//challenge>>>>>>>>>>>>>>>>>>
+//Arrow Function Challenge
 /*
-  String Challenge
-  All Solutions Must Be In One Chain
-  You Can Use Concatenate
+  Function Arrow Challenges
 */
 
-let a = "Elzero Web School";
+// [1] One Statement In Function
+// [2] Convert To Arrow Function
+// [3] Print The Output [Arguments May Change]
 
-// Include This Method In Your Solution [slice, charAt]
-console.log(a.slice(2,6).charAt(0).toUpperCase()+ a.slice(3,6)); // Zero
+let names = function (...args) {
+    return `String [${args.join("], [")}] => Done !`;
+};
+//to Arrow
+/*
+let names = (...args) => {
+    return `String [${args.join("], [")}] => Done !`;
+};
+*/
+console.log(names("Osama", "Mohamed", "Ali", "Ibrahim"));
+// String [Osama], [Mohamed], [Ali], [Ibrahim] => Done !
 
-// 8 H
-console.log(a.substr(-4,1).toUpperCase().repeat(8)); // HHHHHHHH
+/* ================================= */
 
-// Return Array
-console.log(a.slice(0,6).split()); // ["Elzero"]
+// [1] Replace ??? In Return Statement To Get The Output
+// [2] Create The Same Function With Regular Syntax
+// [3] Use Array Inside The Arguments To Get The Output
 
-// Use Only "substr" Method + Template Literals In Your Solution
-console.log(`${a.substr(0,6)}${a.substr(10)}`); // Elzero School
+// let myNumbers = [20, 50, 10, 60];
 
-// Solution Must Be Dynamic Because String May Changes
-console.log(
-`${
-   a.substring(0,1).toLowerCase()+
-   a.substring(1,a.length-1).toUpperCase()+
-   a.substring(a.length- 1).toLowerCase()
-}`
-); // eLZERO WEB SCHOOl
-//  Elzero Web School
+let calc = (one, two, ...nums) => one +  two + nums.reduce((acc, curr) => acc + curr ,0)
+console.log(calc(10, -70, ...myNumbers)); // 80

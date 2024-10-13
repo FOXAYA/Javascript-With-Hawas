@@ -1,110 +1,143 @@
 //Task 01
-console.log(100_000); // 100000
-console.log(100000); // 100000
-console.log(5e4 + 5e4); // 100000
-console.log(100* 100); // 100000
-console.log(1e5); // 100000
-console.log(100000); // 100000
-console.log(1e6 / 1e1); // 100000
-console.log(Math.ceil(100000)); // 100000
-console.log(Math.round(100000)); // 100000
-console.log(Number(100000)); // 100000
-console.log(100000.0); // 100000
-console.log(parseInt(100000)); // 100000
-console.log(10**5); // 100000
+function sayHello(theName, theGender) {
+  if (theGender === "Male"){
+     console.log(`Hello Mr ${theName}`)
+  } else if (theGender === "Female"){
+    console.log(`Hello Miss ${theName}`)
+  } else{
+    console.log(`Hello ${theName}`)
+}
+}
+
+sayHello("Osama", "Male"); // "Hello Mr Osama"
+sayHello("Eman", "Female"); // "Hello Miss Eman"
+sayHello("Sameh"); // "Hello Sameh"
 console.log("*".repeat(100));
+
+
+
 
 
 //Task 02
-console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+function calculate(firstNum, secondNum, operation) {
+  if (secondNum == undefined && operation == undefined)
+     {
+      return ` Second Number Not Found`
+     }
+  if (operation == 'add'){
+     return `${firstNum +  secondNum}`
+    }else if (operation == 'subtract'){
+      return `${firstNum -  secondNum}`
+    }else if (operation == 'multiply'){
+      return `${firstNum *  secondNum}`
+     } else {
+      return `${firstNum + secondNum}`
+  }
+}
+
+console.log(calculate(20)); // Second Number Not Found
+console.log(calculate(20, 30)); // 50
+console.log(calculate(20, 30, 'add')); // 50
+console.log(calculate(20, 30, 'subtract')); // -10
+console.log(calculate(20, 30, 'multiply')); // 600
 console.log("*".repeat(100));
+
+
+
 
 
 //Task 03
-console.log(Number.MAX_SAFE_INTEGER.toString().length); // 16
+function ageInTime(theAge) {
+  if (theAge > 10 && theAge < 100) {
+    console.log(`${theAge} Years`);
+    console.log(`${theAge * 12}  Months`);
+    console.log(`${theAge * 12 * 4}  Weeks`);
+    console.log(`${theAge * 12 * 30} Days`);
+    console.log(`${theAge * 12 * 30 * 24} Hours`);
+    console.log(`${theAge * 12 * 30 * 24 * 60} Minutes`);
+    console.log(`${theAge * 12 * 30 * 24 * 60 * 60} Seconds`);
+  } else {
+    console.log(`Age Out Of Range`);
+  }
+}
+ageInTime(110); // Age Out Of Range
+ageInTime(38); // Months Example => 456 Months
 console.log("*".repeat(100));
+
+
+
 
 
 //Task 04
-let myVar = "100.56789 Views";
-console.log(Number.parseInt(myVar)); // 100
-console.log(+Number.parseFloat(myVar).toFixed(2)); // 100.57
+function checkStatus(a, b, c) {
+ let arr = [a,b,c];
+ let first, second, third;
+ for (let i = 0; i< arr.length;i++){
+  if(typeof arr[i] == "string"){
+       first = arr[i];
+  }else if(typeof arr[i]== "number"){
+     second = arr[i];
+  }
+  else if(typeof arr[i]== "boolean"){
+      if (arr[i] === true)
+      { 
+        third = "You Are Available For Hire"
+      }
+      else {
+        third = "You Are Not Available For Hire"
+      }
+
+   }
+  }
+  console.log(`Hello ${first}, Your Age Is ${second}, ${third}`)
+
+}
+checkStatus("Osama", 38, true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+checkStatus(38, "Osama", true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+checkStatus(true, 38, "Osama"); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+checkStatus(false, "Osama", 38); // "Hello Osama, Your Age Is 38, You Are Not Available For Hire"
 console.log("*".repeat(100));
+
+
+
 
 
 //Task 05
-let num = 10;
-console.log((Number.isInteger(num))+ (Number.isInteger(num))); // 2
+function createSelectBox(startYear, endYear) {
+document.write(`<select>`);
+for (let i = startYear; i<= endYear; i++){
+    document.write(`<option value = ${i}>${i}</option>`)
+  }
+  document.write(`</select>`);
+
+}
+createSelectBox(2000, 2021);
 console.log("*".repeat(100));
+
+
+
 
 
 //Task 06
-let flt = 10.4;
-console.log(Math.ceil(flt) - true); // 10
-console.log(Math.floor(flt)); // 10
-console.log(Math.round(flt)); // 10
-console.log(Number.parseInt(flt)); // 10
-console.log(flt.toFixed()); // 10
+function multiply(...numbers){
+  let result = 1;
+     for(let i = 0;i<numbers.length;i++){
+      if (typeof numbers[i] === "number"){
+          result *= Math.trunc(numbers[i]);
+      }else{
+        continue;
+      }
+    }
+    return  result;
+
+}
+console.log(multiply(10, 20)); // 200
+console.log(multiply("A", 10, 30)); // 300
+console.log(multiply(100.5, 10, "B")); // 1000
 console.log("*".repeat(100));
+
+
+
 
 
 //Task 07
-
-console.log((Math.random() * 4).toFixed()); // 0 || 1 || 2 || 3 || 4
-console.log(Math.floor(Math.random() * 5)); // 0 || 1 || 2 || 3 || 4
-console.log("*".repeat(100));
-
-
-//Task 01
-let userName = "Elzero";
-
-
-console.log(userName.slice(false, true).toLowerCase()); // e
-console.log(userName.substr(false, true).toLowerCase()); // e
-console.log(userName.charAt(false).toLowerCase()); // e
-console.log(userName.slice(false, true).toLowerCase().repeat(true+true+true)); // eee
-console.log("*".repeat(100));
-
-
-//Task 02
-let word = "Elzero";
-let letterZ = "z";
-let letterE = "e";
-let letterO = "O";
-
-console.log(word.includes(letterZ)); // True
-console.log(word.startsWith(letterE.toUpperCase())); // True
-console.log(word.endsWith(letterO.toLowerCase())); // True
-console.log("*".repeat(100));
-
-
-//challenge>>>>>>>>>>>>>>>>>>
-/*
-  String Challenge
-  All Solutions Must Be In One Chain
-  You Can Use Concatenate
-*/
-
-let a = "Elzero Web School";
-
-// Include This Method In Your Solution [slice, charAt]
-console.log(a.slice(2,6).charAt(0).toUpperCase()+ a.slice(3,6)); // Zero
-
-// 8 H
-console.log(a.substr(-4,1).toUpperCase().repeat(8)); // HHHHHHHH
-
-// Return Array
-console.log(a.slice(0,6).split()); // ["Elzero"]
-
-// Use Only "substr" Method + Template Literals In Your Solution
-console.log(`${a.substr(0,6)}${a.substr(10)}`); // Elzero School
-
-// Solution Must Be Dynamic Because String May Changes
-console.log(
-`${
-   a.substring(0,1).toLowerCase()+
-   a.substring(1,a.length-1).toUpperCase()+
-   a.substring(a.length- 1).toLowerCase()
-}`
-); // eLZERO WEB SCHOOl
-//  Elzero Web School
